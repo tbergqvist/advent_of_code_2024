@@ -1,0 +1,14 @@
+pom.xml
+pom.xml.asc
+*.jar
+*.class
+/lib/
+/classes/
+/target/
+/checkouts/
+.calva/
+.lsp/
+days/
+.clj-kondo/
+.nrepl-port
+.cpcache/
