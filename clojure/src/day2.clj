@@ -23,7 +23,7 @@
 
 (defn find-combos [items]
   (as-> (range 0 (count items)) i
-    (map #(into (vec (take % items)) (vec (drop (+ % 1) items))) i)))
+    (map #(concat (take % items) (drop (+ % 1) items)) i)))
 
 (defn is-valid2 [line]
   (->> (re-seq #"\d+" line)
