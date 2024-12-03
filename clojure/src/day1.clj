@@ -25,7 +25,7 @@
 
 (defn get-similarity-score [[first_list second_list]]
   (let [counts (list-to-count-map second_list)]
-    (map #(* %1 (get counts %1 0)) first_list)))
+    (map #(* % (get counts % 0)) first_list)))
 
 (defn part2 [input]
   (->> (split-lines input)

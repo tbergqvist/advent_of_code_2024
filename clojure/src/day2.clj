@@ -22,8 +22,8 @@
        (count)))
 
 (defn find-combos [items]
-  (as-> (range 0 (count items)) i
-    (map #(concat (take % items) (drop (+ % 1) items)) i)))
+  (->> (range 0 (count items))
+    (map #(concat (take % items) (drop (+ % 1) items)))))
 
 (defn is-valid2 [line]
   (->> (re-seq #"\d+" line)
