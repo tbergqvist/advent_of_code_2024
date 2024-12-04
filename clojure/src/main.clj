@@ -1,7 +1,8 @@
 (ns main (:require
           [day1]
           [day2]
-          [day3]))
+          [day3]
+          [day4]))
 
 (defmacro time2 [expr]
   `(let [start# (System/nanoTime)
@@ -18,4 +19,5 @@
 (defn -main [& _]
   (run-day day1/part1 day1/part2 "1")
   (run-day day2/part1 day2/part2 "2")
-  (run-day day3/part1 day3/part2 "3"))
+  (run-day day3/part1 day3/part2 "3")
+  (run-day day4/part1 day4/part2 "4"))
