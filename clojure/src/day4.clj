@@ -43,7 +43,7 @@
 
 (defn part2 [input]
   (let [size (inc (index-of input "\n"))]
-    (->> (range 0 (count input))
+    (->> (find-positions \A input)
          (map (find-neighbours neighbours2 size))
          (map3 #(nth input % 0))
          (map2 #(= '(\M \A \S) %))
