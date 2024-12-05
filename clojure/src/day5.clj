@@ -50,15 +50,3 @@
          (map (sort-list parsed-rules))
          (map #(nth % (/ (count %) 2)))
          (reduce +))))
-
-(let [input (slurp "../inputs/5.txt")
-      [rules, updates] (split input #"\n\n")
-      parsed-rules (parse-rules rules)]
-  (->> (split-lines updates)
-       (map #(split % #","))
-       (map2 parse-long)
-       (filter #(not (update-is-valid parsed-rules %)))
-       (map (sort-list parsed-rules))
-       (map #(nth % (/ (count %) 2)))
-       (reduce +)
-       ))
