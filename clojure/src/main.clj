@@ -2,7 +2,8 @@
           [day1]
           [day2]
           [day3]
-          [day4]))
+          [day4]
+          [day5]))
 
 (defmacro time2 [expr]
   `(let [start# (System/nanoTime)
@@ -20,4 +21,5 @@
   (run-day day1/part1 day1/part2 "1")
   (run-day day2/part1 day2/part2 "2")
   (run-day day3/part1 day3/part2 "3")
-  (run-day day4/part1 day4/part2 "4"))
+  (run-day day4/part1 day4/part2 "4")
+  (run-day day5/part1 day5/part2 "5"))

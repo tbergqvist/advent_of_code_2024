@@ -1,12 +1,8 @@
 (ns day4
   (:require
-   [clojure.string :refer [index-of]]))
+   [clojure.string :refer [index-of]]
+   [utils :refer [map2 map3]]))
 
-(defn map2 [f, coll]
-  (map (fn [x] (map f x)) coll))
-
-(defn map3 [f, coll]
-  (map2 (fn [x] (map f x)) coll))
 
 (defn find-positions [char, s]
   (->> (map-indexed (fn [idx ch] [idx ch]) s)
