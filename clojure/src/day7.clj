@@ -3,19 +3,18 @@
     [clojure.string :as str]
     [clojure.math.combinatorics :as combo]))
 
-(defn calculate [operations numbers count]
+(defn calculate [count numbers operations]
   (if (empty? numbers)
     count
     (recur
-     (rest operations)
-     (drop 1 numbers)
-     ((first operations) count (first numbers)))))
+     ((first operations) count (first numbers))
+     (rest numbers)
+     (rest operations))))
 
 (defn find-calibrations [operators value numbers]
   (->> (combo/selections operators (dec (count numbers)))
-       (map #(vector numbers %))
-       (map #(let [[numbers operations] %]
-               (calculate operations (rest numbers) (first numbers))))
+       (map (fn [operations]
+              (calculate (first numbers) (rest numbers) operations)))
        (some #(== value %))))
 
 (defn parse-input [input]
