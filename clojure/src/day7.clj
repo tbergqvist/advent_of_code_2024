@@ -9,11 +9,7 @@
     (recur
      (rest operations)
      (drop 1 numbers)
-     (case (first operations)
-       :+ (+ count (first numbers))
-       :* (* count (first numbers))
-       :|| (parse-long (str count (first numbers))))
-     )))
+     ((first operations) count (first numbers)))))
 
 (defn find-calibrations [operators value numbers]
   (->> (combo/selections operators (dec (count numbers)))
@@ -32,13 +28,16 @@
 (defn part1 [input]
   (->> (parse-input input)
        (filter (fn [[value numbers]]
-                 (find-calibrations '(:+ :*) value numbers)))
+                 (find-calibrations (list + *) value numbers)))
        (map first)
        (reduce +)))
+
+(defn append-number [num1 num2]
+  (parse-long (str num1 num2)))
 
 (defn part2 [input]
   (->> (parse-input input)
        (filter (fn [[value numbers]]
-                 (find-calibrations '(:+ :* :||) value numbers)))
+                 (find-calibrations (list + * append-number) value numbers)))
        (map first)
        (reduce +)))
