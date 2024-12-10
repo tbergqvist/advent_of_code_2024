@@ -19,11 +19,9 @@
   (->> (map-indexed
         (fn [idx ch] [(take idx update) ch]) update)
        (map (fn [[list ch]] (let [number_to_find (get parsed-rules ch #{})]
-                              (map #(contains? number_to_find %) list)
-                              )))
+                              (map #(contains? number_to_find %) list))))
        (flatten)
-       (every? false?)
-       ))
+       (every? false?)))
 
 (defn part1 [input]
   (let [[rules, updates] (split input #"\n\n")
