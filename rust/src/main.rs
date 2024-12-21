@@ -20,5 +20,5 @@ macro_rules! run_days {
 }
 
 fn main() {
-	run_days!(1, 2, 10, 11);
+	run_days!(1, 2, 10, 11, 12);
 }
