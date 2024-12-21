@@ -10,7 +10,7 @@ struct Machine {
 }
 
 fn parse_machines(input: &str, offset: i64) -> Vec<Machine> {
-    let num_finder = regex::Regex::new(r"(\d+)").unwrap();
+    let num_finder = regex::Regex::new(r"\d+").unwrap();
 
     input
         .split("\n\n")
