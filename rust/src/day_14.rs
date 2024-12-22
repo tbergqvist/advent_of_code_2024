@@ -1,5 +1,3 @@
-use std::{thread, time::Duration};
-
 use itertools::Itertools;
 
 #[derive(Debug)]
@@ -60,7 +58,7 @@ pub fn a(input: &str) -> i64 {
     .unwrap()
 }
 
-pub fn b(input: &str) -> i64 {
+pub fn b(_: &str) -> i64 {
     /*    
     let width = 101;
     let height = 103;
